@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         console.log("hello world");
-        function getComputerChoice(){
-            let ans = Math.floor(Math.random() * 3 ) + 1;
-            if (ans === 1){
+        function getComputerChoice() {
+            let ans = Math.floor(Math.random() * 3) + 1;
+            if (ans === 1) {
                 return "rock";
-            } else if (ans === 2){
+            } else if (ans === 2) {
                 return "paper";
             } else {
                 return "scissors";
             }
         }
-        console.log(getComputerChoice());
 
-        function getHumanChoice(){4
+        function getHumanChoice() {
             return prompt("rock, paper, scissors");
         }
-        console.log(getHumanChoice());
-
         let humanScore = 0;
         let computerScore = 0;
 
+        function playRound(humanChoice, computerChoice) {
+            /*compare humanChoice with computerChoice*/
+            if (humanChoice === computerChoice) {
+                console.log("empate");
+            } else if ((humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper") || (humanChoice === "rock" && computerChoice === "scissors")) {
+                ++humanScore;
+                console.log("You win");
+            } else {
+                ++computerScore;
+                console.log("Loser");
+            }
+        }
+
+        const humanSelection = getHumanChoice();
+        console.log(humanSelection)
+        const computerSelection = getComputerChoice();
+        console.log(computerSelection)
+
+        playRound(humanSelection, computerSelection);
+
     </script>
 </body>
+
 </html>
