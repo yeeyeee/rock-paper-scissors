@@ -23,6 +23,8 @@
 
         function getHumanChoice() {
             return prompt("rock, paper, scissors");
+
+
         }
         let humanScore = 0;
         let computerScore = 0;
@@ -40,12 +42,26 @@
             }
         }
 
-        const humanSelection = getHumanChoice();
-        console.log(humanSelection)
-        const computerSelection = getComputerChoice();
-        console.log(computerSelection)
+        function playGame() {
+            for (let i = 0; i < 5; i++) {
+                const humanSelection = (getHumanChoice()).toLowerCase();
+                console.log(humanSelection)
+                const computerSelection = getComputerChoice();
+                console.log(computerSelection)
 
-        playRound(humanSelection, computerSelection);
+                playRound(humanSelection, computerSelection);
+            }
+            console.log(humanScore, computerScore)
+            if (humanScore === computerScore){
+                console.log("Empate");
+            } else if (humanScore > computerScore){
+                console.log("You win");
+            } else{
+                console.log("Loser")
+            }
+        }
+
+        playGame();
 
     </script>
 </body>
