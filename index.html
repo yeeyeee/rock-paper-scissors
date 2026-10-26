@@ -8,62 +8,15 @@
 </head>
 
 <body>
-    <script>
-        console.log("hello world");
-        function getComputerChoice() {
-            let ans = Math.floor(Math.random() * 3) + 1;
-            if (ans === 1) {
-                return "rock";
-            } else if (ans === 2) {
-                return "paper";
-            } else {
-                return "scissors";
-            }
-        }
-
-        function getHumanChoice() {
-            return prompt("rock, paper, scissors");
-
-
-        }
-        let humanScore = 0;
-        let computerScore = 0;
-
-        function playRound(humanChoice, computerChoice) {
-            /*compare humanChoice with computerChoice*/
-            if (humanChoice === computerChoice) {
-                console.log("empate");
-            } else if ((humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper") || (humanChoice === "rock" && computerChoice === "scissors")) {
-                ++humanScore;
-                console.log("You win");
-            } else {
-                ++computerScore;
-                console.log("Loser");
-            }
-        }
-
-        function playGame() {
-            for (let i = 0; i < 5; i++) {
-                const humanSelection = (getHumanChoice()).toLowerCase();
-                console.log(humanSelection)
-                const computerSelection = getComputerChoice();
-                console.log(computerSelection)
-
-                playRound(humanSelection, computerSelection);
-            }
-            console.log(humanScore, computerScore)
-            if (humanScore === computerScore){
-                console.log("Empate");
-            } else if (humanScore > computerScore){
-                console.log("You win");
-            } else{
-                console.log("Loser")
-            }
-        }
-
-        playGame();
-
-    </script>
+    <h1>ROCK PAPER SCISSORS</h1>
+    <div class="choices">
+        <button id="rockbtn">ROCK</button>
+        <button id="paperbtn">PAPER</button>
+        <button id="scissorsbtn">SCISSORS</button>
+    </div>
+    <div id="result"></div>
+    <div id="score">Human: 0 | Computer: 0</div>
+    <script src="script.js"></script>
 </body>
 
 </html>
